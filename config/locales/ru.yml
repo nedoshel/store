@@ -1,0 +1,14 @@
+ru:
+  hello: "Здарова, ёпта"
+  products:
+    index:
+      title: "Товары"
+  notices:
+    subscriber:
+      created: "Вы подписались на товар."
+  activerecord:
+    attributes:
+      user:
+        password_challenge: "Текущий пароль"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"

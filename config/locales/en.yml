@@ -29,3 +29,13 @@
 
 en:
   hello: "Hello world"
+  products:
+    index:
+      title: "Products"
+  notices:
+    subscriber:
+      created: "You are now subscribed."
+  activerecord:
+    attributes:
+      user:
+        password_challenge: "Current password"

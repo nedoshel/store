@@ -1,0 +1,16 @@
+<%= cache product do %>
+  <section class="product-info">
+    <div id="<%= dom_id product %>">
+      <div>
+        <%= product.name %>
+        <%= product.description %>
+      </div>
+
+      <div>
+        <% if product.featured_image.attached? %>
+          <%= image_tag product.featured_image.variant(resize_to_limit: [500, nil]) %>
+          <%= link_to t('.download'), product.featured_image.url, download: 'data', target: :_blank %>
+        <% end %>
+    </div>
+  </section>
+<% end %>
