@@ -9,7 +9,10 @@ ru:
   notices:
     subscriber:
       created: "Вы подписались на товар."
-
+  products:
+    index:
+      title: "Товары"
+      add_product: "Добавить товар"
   sessions:
     new:
       title: "Вход"
@@ -23,7 +26,7 @@ ru:
   settings:
     profiles:
       show: 
-        title: "Профиль(%{email})"
+        title: "Профиль"
         submit: "Обновить профиль"
     passwords:
       show:
@@ -51,3 +54,12 @@ ru:
        password_confirmation: "Подтверждение пароля"
        password_challenge: "Текущий пароль"
        unconfirmed_email: "Новая электронная почта"
+
+    errors:
+      models:
+        user:
+          attributes:
+            password_challenge:
+              invalid: "неверный"
+            password_confirmation:
+              confirmation: "не совпадает с паролем"

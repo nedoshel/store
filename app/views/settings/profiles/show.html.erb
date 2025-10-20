@@ -1,6 +1,10 @@
 <h1 class="text-3xl font-bold text-center">
-  <%= t(".title", email: Current.user.email_address) %>
+  <%= t(".title") %>
 </h1>
+
+<p class="text-center mb-8">
+  <%=  Current.user.email_address %>
+</p>
 
 <%= form_with model: Current.user, url: settings_profile_path, class: "max-w-md mx-auto" do |form| %>
   <% if form.object.errors.any? %>
