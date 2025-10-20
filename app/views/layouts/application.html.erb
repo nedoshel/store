@@ -23,20 +23,36 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>    
+  <body class="p-5 bg-white dark:bg-gray-900 antialiased text-white">    
     <div class="notice"><%= notice %></div>
     <div class="alert"><%= alert %></div>
     
     <nav class="navbar">
-      <%= link_to "Home", root_path %>
-      <% if authenticated? %>
-        <%= link_to "Settings", settings_root_path %>
-        <%= button_to "Log out", session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign Up", sign_up_path %>
-        <%= link_to "Login", new_session_path %>
-      <% end %>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <%= navbar_link_to "Home", root_path %>
+          </li>
+          <% if authenticated? %>
+            <li>
+              <%= navbar_link_to "Settings", settings_root_path %>
+            </li>
+            <li>
+              <%= navbar_button_to "Log out", session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= navbar_link_to t("sign_ups.show.title"), sign_up_path %>
+            </li>
+            <li>
+              <%= navbar_link_to t("sessions.new.title"), new_session_path %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </nav>
+
+
     <main>
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>

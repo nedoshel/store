@@ -1,11 +1,21 @@
 <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
 <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
+<h1 class="text-3xl font-bold text-center">
+  <%= t(".title") %>
+</h1>
+
+<%= form_with url: session_path, model: User.new, class: "max-w-sm mx-auto" do |form| %>
+  <div class="mb-5">
+    <%= form.label :email_address, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.email_field :email_address, required: true, autofocus: true, placeholder: "email@host.com", value: params[:email_address], class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+  </div>
+  <div class="mb-5">
+    <%= form.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.password_field :password, required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+  </div>
+  <%= form.submit t(".submit"), class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
 <% end %>
 <br>
 
-<%= link_to "Forgot password?", settings_password_path %>
+<%#= link_to "Forgot password?", settings_password_path %>

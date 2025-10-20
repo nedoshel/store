@@ -12,3 +12,21 @@ ru:
         password_challenge: "Текущий пароль"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+  sessions:
+    new:
+      title: "Вход"
+      submit: "Войти"
+  sign_ups:
+    show:
+      title: "Регистрация"
+      submit: "Зарегистрироваться"
+  activerecord:
+    models:
+      user: "пользователь"
+    attributes:
+      user:
+       first_name: "Имя"
+       last_name: "Фамилия"
+       email_address: "Электронная почта"
+       password: "Пароль"
+       password_confirmation: "Подтверждение пароля"
