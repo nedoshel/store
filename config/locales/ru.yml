@@ -13,6 +13,15 @@ ru:
     index:
       title: "Товары"
       add_product: "Добавить товар"
+    show:
+      title: "Информация о товаре"
+      description: "Описание товара"
+    inventory:
+      in_stock: "В наличии"
+      out_of_stock: "Нет в наличии"
+      notify_me: "Уведомить меня, когда появится"
+      add_to_cart: "Добавить в корзину"
+      submit: "Отправить"
   sessions:
     new:
       title: "Вход"

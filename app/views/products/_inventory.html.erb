@@ -1,11 +1,20 @@
 <% if product.inventory_count? %>
-  <p>Availability: <%= product.inventory_count %> in stock</p>
+  <div class="flex mb-4">
+    <div class="mr-4">
+        <span class="font-bold text-gray-700 dark:text-gray-300">Price:</span>
+        <span class="text-gray-600 dark:text-gray-300">$29.99</span>
+    </div>
+    <div>
+        <p>Availability: <%= product.inventory_count %> in stock</p>
+    </div>
+  </div>
 <% else %>
-  <p>Out of stock</p>
-  <p>Email me when available.</p>
-
-  <%= form_with model: [product, Subscriber.new] do |form| %>
-    <%= form.email_field :email, placeholder: "you@example.com", required: true %>
-    <%= form.submit "Submit" %>
-  <% end %>
+   <div class="mr-4">
+      <p><%= t(".out_of_stock") %></p>
+      <br>
+      <%= form_with model: [product, Subscriber.new], class: "flex items-center" do |form| %>
+        <%= form.email_field :email, placeholder: t(".notify_me"), required: true, class: "mr-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+        <%= form.submit t(".submit"), class: "bg-blue-500 text-white px-4 py-2" %>
+      <% end %>
+    </div>
 <% end %>
