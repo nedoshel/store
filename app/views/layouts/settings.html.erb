@@ -1,22 +1,30 @@
 <%= content_for :content do %>
-  <section class="settings">
-    <nav>
-      <h4>Account Settings</h4>
-      <%= link_to "Profile", settings_profile_path %>
-      <%= link_to "Email", settings_email_path %>
-      <%= link_to "Password", settings_password_path %>
-      <%# <%= link_to "Account", settings_user_path %>
+  <nav class="bg-gray-50 dark:bg-gray-700">
+      <div class="max-w-screen-xl px-4 py-3 mx-auto">
+          <div class="flex items-center">
+              <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                  <li>
+                      <%= navbar_link_to t("settings.profiles.show.title", email: Current.user.email_address), settings_profile_path, class: "text-gray-900 dark:text-white hover:underline" %>
+                  </li>
+                  <li>
+                      <%= navbar_link_to t("settings.emails.show.title"), settings_email_path, class: "text-gray-900 dark:text-white hover:underline" %>
+                  </li>
+                  <li>
+                      <%= navbar_link_to t("settings.passwords.show.title"), settings_password_path, class: "text-gray-900 dark:text-white hover:underline" %>
+                  </li>
+                  <% if Current.user.admin? %>
+                    <li>
+                      <%= navbar_link_to t("store.users.index.title"), store_users_path %>
+                    </li>
+                  <% end %>
+              </ul>
+          </div>
+      </div>
+  </nav>
 
-      <% if Current.user.admin? %>
-        <h4>Store Settings</h4>
-        <%= link_to "Users", store_users_path %>
-      <% end %>
-    </nav>
-
-    <div>
-      <%= yield %>
-    </div>
-  </section>
+  <div>
+    <%= yield %>
+  </div>
 <% end %>
 
 <%= render template: "layouts/application" %>

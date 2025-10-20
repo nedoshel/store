@@ -1,21 +1,23 @@
-<h1>Profile</h1>
+<h1 class="text-3xl font-bold text-center">
+  <%= t(".title", email: Current.user.email_address) %>
+</h1>
 
-<%= form_with model: Current.user, url: settings_profile_path do |form| %>
+<%= form_with model: Current.user, url: settings_profile_path, class: "max-w-md mx-auto" do |form| %>
   <% if form.object.errors.any? %>
     <div>Error: <%= form.object.errors.full_messages.first %></div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, required: true, autocomplete: "given-name" %>
+  <div class="relative z-0 w-full mb-5 group">
+    <%= form.text_field :first_name, required: true, placeholder: "", class: text_field_class %>
+    <%= form.label :first_name, class: label_class %>
+  </div>
+
+  <div class="relative z-0 w-full mb-5 group">
+    <%= form.text_field :last_name, required: true, placeholder: "", class: text_field_class %>
+    <%= form.label :last_name, class: label_class %>
   </div>
 
   <div>
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, required: true, autocomplete: "family-name" %>
-  </div>
-
-  <div>
-    <%= form.submit "Update profile" %>
+    <%= form.submit t(".submit"), class: submit_class %>
   </div>
 <% end %>

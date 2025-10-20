@@ -145,6 +145,7 @@ GEM
     ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
     ffi (1.17.2-x86_64-linux-musl)
+    flowbite (3.1.2)
     fugit (1.11.2)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -378,6 +379,7 @@ DEPENDENCIES
   bundler-audit
   debug
   dotenv-rails
+  flowbite
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

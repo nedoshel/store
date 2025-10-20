@@ -1,25 +1,44 @@
 ru:
   hello: "Здарова, ёпта"
+  root:
+    title: "Магазин"
+    home: "Домой"
   products:
     index:
       title: "Товары"
   notices:
     subscriber:
       created: "Вы подписались на товар."
-  activerecord:
-    attributes:
-      user:
-        password_challenge: "Текущий пароль"
-        password: "Пароль"
-        password_confirmation: "Подтверждение пароля"
+
   sessions:
     new:
       title: "Вход"
       submit: "Войти"
+    destroy:
+      title: "Выход"
   sign_ups:
     show:
       title: "Регистрация"
       submit: "Зарегистрироваться"
+  settings:
+    profiles:
+      show: 
+        title: "Профиль(%{email})"
+        submit: "Обновить профиль"
+    passwords:
+      show:
+        title: "Смена пароля"
+        submit: "Обновить пароль"
+    emails:
+      show:
+        title: "Смена электронной почты"
+        submit: "Обновить электронную почту"
+  
+  store:
+    users:
+      index:
+        title: "Пользователи"
+
   activerecord:
     models:
       user: "пользователь"
@@ -30,3 +49,5 @@ ru:
        email_address: "Электронная почта"
        password: "Пароль"
        password_confirmation: "Подтверждение пароля"
+       password_challenge: "Текущий пароль"
+       unconfirmed_email: "Новая электронная почта"
