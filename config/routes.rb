@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   resource :session
   resource :sign_up
-  resources :products do
-    resources :subscribers, only: [ :create ]
+  resources :products, only: %i[index show] do
+    resources :subscribers, only: [ :create ], on: :member
+    resource :wishlist, only: [ :create, :destroy ], module: :products
   end
+
+  resources :wishlists
 
   resource :unsubscribe, only: [ :show ]
 
@@ -21,6 +24,9 @@ Rails.application.routes.draw do
 
   namespace :store do
     resources :users
+    resources :products
+
+    root to: redirect("/store/products")
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

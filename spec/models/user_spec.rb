@@ -5,6 +5,8 @@ RSpec.describe User, type: :model do
   # associations & secure password
   it { should have_secure_password }
   it { should have_many(:sessions).dependent(:destroy) }
+  it { should have_secure_password }
+  it { should have_many(:wishlists).dependent(:destroy) }
 
   # validations
   it { should validate_presence_of(:first_name) }

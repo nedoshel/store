@@ -1,0 +1,45 @@
+<%= form_with(model: [:store, product], class: "mx-auto") do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="relative z-0 w-full mb-5 group">
+    <%= form.text_field :name, required: true, placeholder: "", class: text_field_class %>
+    <%= form.label :name, class: label_class %>
+  </div>
+
+  <div>
+    <%= form.rich_textarea :description, rows: 30, class: text_field_class %>
+  </div>
+
+  <br/>
+
+  <div class="relative z-0 w-full mb-5 group">
+    <%= form.number_field :inventory_count, required: true, placeholder: "", class: text_field_class %>
+    <%= form.label :inventory_count, class: label_class %>
+  </div>
+
+  <% if product.featured_image.attached? %>
+    <div class="relative z-0 w-full mb-5 group">
+      <%= image_tag product.featured_image.variant(resize_to_limit: [nil, 300]) %>
+      <%= form.hidden_field :featured_image, value: product.featured_image.signed_id  %>
+    </div>
+  <% end %>
+
+  <div class="relative z-0 w-full mb-5 group"> 
+    <%= form.file_field :featured_image, accept: "image/*", placeholder: "", class: text_field_class %>
+    <%= form.label :featured_image, class: label_class %>
+  </div>
+
+  <div>
+    <%= form.submit t(".submit"), class: submit_class %>
+  </div>
+<% end %>

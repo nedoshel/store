@@ -1,0 +1,17 @@
+<div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+  <%= link_to store_product_path(product) do %>
+    <% if product.featured_image.present? %>
+      <%= image_tag product.featured_image.variant(resize_to_limit: [nil, 300]),  class: "h-80 w-72 object-cover rounded-t-xl" %>
+    <% end %>
+    <div class="px-4 py-3 w-72">
+      <span class="text-gray-400 mr-3 uppercase text-xs">Brand</span>
+      <p class="text-lg font-bold text-black truncate block capitalize"><%= product.name %></p>
+      <div class="flex items-center">
+        <p class="text-lg font-semibold text-black cursor-auto my-3">$149</p>
+        <del>
+          <p class="text-sm text-gray-600 cursor-auto ml-2">$199</p>
+        </del>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :sessions, dependent: :destroy
+  has_many :wishlists, dependent: :destroy
+  has_many :wishlist_products, through: :wishlists
+
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
   validates_uniqueness_of :email_address, case_sensitive: false

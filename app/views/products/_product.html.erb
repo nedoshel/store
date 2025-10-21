@@ -1,26 +1,24 @@
-<%= cache product do %>
- <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-    <%= link_to product_path(product) do %>
+<%= cache [product, Current.user] do %>
+<div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <%= link_to product_path(product), data: { turbo: false } do %>
       <% if product.featured_image.present? %>
         <%= image_tag product.featured_image.variant(resize_to_limit: [nil, 300]),  class: "h-80 w-72 object-cover rounded-t-xl" %>
       <% end %>
-      <div class="px-4 py-3 w-72">
+    <% end %>
+    <div class="px-4 py-3 w-72">
+      <%= link_to product_path(product), data: { turbo: false } do %>
         <span class="text-gray-400 mr-3 uppercase text-xs">Brand</span>
         <p class="text-lg font-bold text-black truncate block capitalize"><%= product.name %></p>
-        <div class="flex items-center">
-          <p class="text-lg font-semibold text-black cursor-auto my-3">$149</p>
-          <del>
-            <p class="text-sm text-gray-600 cursor-auto ml-2">$199</p>
-          </del>
-          <div class="ml-auto">
-            <button title="add this component to favorite list" class="bottom-1 text-gray-600 dark:text-red-400">
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="<%= %i[red currentColor].sample %>" viewBox="0 0 24 24">
-                <path d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z"/>
-              </svg>
-          </button>
-          </div>
+      <% end %>
+      <div class="flex items-center">
+        <p class="text-lg font-semibold text-black cursor-auto my-3">$149</p>
+        <del>
+          <p class="text-sm text-gray-600 cursor-auto ml-2">$199</p>
+        </del>
+        <div class="ml-auto">          
+          <%= render 'favorite', product: product, wishlist_product_ids: wishlist_product_ids %>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
 <% end %>

@@ -50,19 +50,40 @@ ru:
     users:
       index:
         title: "Пользователи"
+    products:
+      index:
+        title: "Товары"
+        add_product: "Добавить товар"
+      show:
+        title: "Информация о товаре"
+        description: "Описание товара"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm_deletion: "Вы уверены, что хотите удалить этот товар?"
+        full_description: "Полное описание"
+      form:
+        submit: "Сохранить товар"  
+      edit:
+        title: "Редактирование товара"
 
   activerecord:
     models:
       user: "пользователь"
     attributes:
       user:
-       first_name: "Имя"
-       last_name: "Фамилия"
-       email_address: "Электронная почта"
-       password: "Пароль"
-       password_confirmation: "Подтверждение пароля"
-       password_challenge: "Текущий пароль"
-       unconfirmed_email: "Новая электронная почта"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email_address: "Электронная почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        password_challenge: "Текущий пароль"
+        unconfirmed_email: "Новая электронная почта"
+      product:
+        name: "Название"
+        description: "Описание"
+        inventory_count: "Количество на складе"
+        featured_image: "Изображение товара"
+
 
     errors:
       models:

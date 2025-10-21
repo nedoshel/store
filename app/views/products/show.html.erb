@@ -35,9 +35,5 @@
 
     <div>
       <%= link_to "Back", products_path %>
-      <% if authenticated? && Current.user.admin? %>
-        <%= link_to "Edit", edit_product_path(@product) %>
-        <%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
-      <% end %>
     </div>
 </div>

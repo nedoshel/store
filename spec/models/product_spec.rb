@@ -10,6 +10,9 @@ RSpec.describe Product, type: :model do
   describe "associations and attachments" do
     it { is_expected.to have_many(:subscribers).dependent(:destroy) }
 
+    it { is_expected.to have_many(:wishlist_products).dependent(:destroy) }
+    it { is_expected.to have_many(:wishlists).through(:wishlist_products) }
+
     it { should have_one_attached(:featured_image) }
 
     it { should have_rich_text(:description) }
