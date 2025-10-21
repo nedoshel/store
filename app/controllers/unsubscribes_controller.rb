@@ -5,7 +5,7 @@ class UnsubscribesController < ApplicationController
   def show
     @subscriber&.destroy
 
-    redirect_to root_path, notice: t("notices.unsubscribed.")
+    redirect_to root_path, notice: t(".unsubscribed")
   end
 
   private

@@ -9,6 +9,9 @@ ru:
   notices:
     subscriber:
       created: "Вы подписались на товар."
+  unsubscribes: 
+    show:
+      unsubscribed: "Вы отписались от товара"
   products:
     index:
       title: "Товары"
@@ -54,6 +57,12 @@ ru:
       index:
         title: "Товары"
         add_product: "Добавить товар"
+      inventory:
+        in_stock: "В наличии"
+        out_of_stock: "Нет в наличии"
+        notify_me: "Уведомить меня, когда появится"
+        add_to_cart: "Добавить в корзину"
+        submit: "Отправить"    
       show:
         title: "Информация о товаре"
         description: "Описание товара"
