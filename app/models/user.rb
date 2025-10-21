@@ -3,7 +3,8 @@ class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
   has_many :wishlists, dependent: :destroy
   has_many :wishlist_products, through: :wishlists
-
+  has_one :favorite_wishlist, -> { where(wishlists: { name: Wishlist::DEFAULT_FAVORITE_NAME }) }, class_name: "Wishlist"
+  has_many :favorite_products, ->(record) { record.wishlist_products.by_wishlist(record.favorite_wishlist) }, source: :product, through: :wishlist_products
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
   validates_uniqueness_of :email_address, case_sensitive: false

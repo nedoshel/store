@@ -23,7 +23,7 @@ class Products::WishlistsController < ApplicationController
       if (id = params[:wishlist_id])
         @wishlist = Current.user.wishlists.find(id)
       else
-        @wishlist = Current.user.wishlists.find_or_create_by(name: Wishlist::DEFAULT_NAME)
+        @wishlist = Current.user.wishlists.find_or_create_by(name: Wishlist::DEFAULT_FAVORITE_NAME)
       end
     end
 
@@ -45,6 +45,6 @@ class Products::WishlistsController < ApplicationController
     end
 
     def wishlist_product_ids
-      Current.user.wishlist_products.by_wishlist(@wishlist).pluck(:product_id)
+      Current.user.favorite_product_ids
     end
 end
